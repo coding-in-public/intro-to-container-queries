@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Container Queries</title>
+  </head>
+  <body>
+    <main>
+      <div class="wrapper">
+        <div class="box">
+          <div class="image-wrapper">
+            <p class="width-text"></p>
+            <img src="https://unsplash.it/600?1" alt="image" />
+          </div>
+          <h2>Container Query Title #1</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima
+            natus voluptatum, voluptates voluptate. Aliquam aspernatur assumenda
+          </p>
+        </div>
+        <div class="box">
+          <div class="image-wrapper">
+            <p class="width-text"></p>
+            <img src="https://unsplash.it/600?2" alt="image" />
+          </div>
+          <h2>Container Query Title #2</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima
+            natus voluptatum, voluptates voluptate. Aliquam aspernatur assumenda
+          </p>
+        </div>
+        <div class="box">
+          <div class="image-wrapper">
+            <p class="width-text"></p>
+            <img src="https://unsplash.it/600?3" alt="image" />
+          </div>
+          <h2>Container Query Title #3</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima
+            natus voluptatum, voluptates voluptate. Aliquam aspernatur assumenda
+          </p>
+        </div>
+        <div class="box">
+          <div class="image-wrapper">
+            <p class="width-text"></p>
+            <img src="https://unsplash.it/600?4" alt="image" />
+          </div>
+          <h2>Container Query Title 4</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima
+            natus voluptatum, voluptates voluptate. Aliquam aspernatur assumenda
+          </p>
+        </div>
+        <div class="box">
+          <div class="image-wrapper">
+            <p class="width-text"></p>
+            <img src="https://unsplash.it/600?5" alt="image" />
+          </div>
+          <h2>Container Query Title #5</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima
+            natus voluptatum, voluptates voluptate. Aliquam aspernatur assumenda
+          </p>
+        </div>
+        <div class="box">
+          <div class="image-wrapper">
+            <p class="width-text"></p>
+            <img src="https://unsplash.it/600?6" alt="image" />
+          </div>
+          <h2>Container Query Title #6</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima
+            natus voluptatum, voluptates voluptate. Aliquam aspernatur assumenda
+          </p>
+        </div>
+        <div class="box">
+          <div class="image-wrapper">
+            <p class="width-text"></p>
+            <img src="https://unsplash.it/600?7" alt="image" />
+          </div>
+          <h2>Container Query Title #7</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima
+            natus voluptatum, voluptates voluptate. Aliquam aspernatur assumenda
+          </p>
+        </div>
+      </div>
+    </main>
+    <script>
+      const box = document.querySelector(".box");
+      const widthText = document.querySelectorAll(".width-text");
+
+      const setWidthText = (width) => {
+        widthText.forEach((text) => {
+          text.textContent = `${width.toLocaleString(undefined, {
+            maximumFractionDigits: 0,
+          })}px`;
+        });
+      };
+
+      const resizeObserver = new ResizeObserver((entries) => {
+        entries.forEach((entry) => {
+          const { width } = entry.contentRect;
+          setWidthText(width);
+        });
+      });
+
+      resizeObserver.observe(box);
+    </script>
+  </body>
+</html>

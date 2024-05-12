@@ -1,0 +1,70 @@
+@import "https://unpkg.com/open-props";
+@import "https://unpkg.com/open-props/normalize.min.css";
+
+body {
+  display: grid;
+  min-height: 100vh;
+  padding: 2rem;
+  max-width: 1400px;
+  margin-inline: auto;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+  gap: 2rem;
+  margin-inline: auto;
+
+  .box {
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  .image-wrapper {
+    position: relative;
+    img {
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      width: 100%;
+    }
+    .width-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 100;
+      font-size: 2rem;
+      font-weight: bold;
+      background-color: black;
+      padding: 0.5rem;
+    }
+  }
+}
+
+h2 {
+  font-size: clamp(1.5rem, 2.5vw, 4rem);
+}
+
+.box {
+  container-type: inline-size;
+  container-name: box;
+}
+
+@container box (min-width: 350px) {
+  h2 {
+    font-size: 2rem;
+    color: blue;
+  }
+}
+
+@container box (min-width: 450px) {
+  h2 {
+    font-size: 2.9rem;
+    color: green;
+  }
+}
